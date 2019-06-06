@@ -5,7 +5,7 @@ private class OrderTests {
         TestDataFactory.InsertTestData(20);
     }
     
-    static testmethod void OrderUpdate_UnitTest() {
+    private static testmethod void OrderUpdate_UnitTest() {
     	Order selectedOrder = [Select name,Status, Id from Order limit 1];
         Product2 oldProd = [Select Quantity_Ordered__c, Name, Id from Product2 limit 1];
         
@@ -17,7 +17,7 @@ private class OrderTests {
         TestDataFactory.VerifyQuantityOrdered(oldProd,updatedProd,Constants.DEFAULT_ROWS);
     }
     
-    static testmethod void OrderExtension_UnitTest() {
+    private static testmethod void OrderExtension_UnitTest() {
         PageReference reference = Page.OrderEdit;
         Test.setCurrentPage(reference);
         Order CurOrder = [Select Id,Status from Order limit 1];
